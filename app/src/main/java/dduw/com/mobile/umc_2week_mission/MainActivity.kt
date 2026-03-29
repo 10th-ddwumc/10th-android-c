@@ -3,8 +3,6 @@ package dduw.com.mobile.umc_2week_mission
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import dduw.com.mobile.umc_2week_mission.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main_fragmentContainer, homeFragment())
+            .replace(R.id.main_fragmentContainer, HomeFragment())
             .commit()
 
         binding.mainBnv.setOnItemSelectedListener { item ->
@@ -25,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.homeFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_fragmentContainer, homeFragment())
+                        .replace(R.id.main_fragmentContainer, HomeFragment())
                         .commit()
                     true
                 }

@@ -34,14 +34,18 @@
             app:layout_constraintTop_toBottomOf="@+id/homeTitle" />
 
         <ImageView
-            android:id="@+id/homeImg"
-            android:layout_width="378dp"
-            android:layout_height="505dp"
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="48dp"
-            android:src="@mipmap/homepicture"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="17dp"
+            android:src="@drawable/homepic"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeSubTitle" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

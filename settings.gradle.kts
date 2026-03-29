@@ -23,5 +23,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "UMC_Work02"
-include(":app")
+include(":app" )
  

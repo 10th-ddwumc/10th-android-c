@@ -24,4 +24,19 @@ class WishlistFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val itemList = listOf(
+            ItemData(R.drawable.item5, "Nike Everyday Plus Cushioned", "Training Ankle Socks (6 Pairs)", "US $123", 5),
+            ItemData(R.drawable.item2, "Socks", "sample explain", "US $10", 7),
+        )
+        val mainAdapter = ItemWishAdapter(itemList)
+        val gridLayoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 2)
+
+        binding.rvWish.layoutManager = gridLayoutManager
+        binding.rvWish.adapter = mainAdapter
+
+    }
 }

@@ -63,8 +63,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/newProduct"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
-            android:layout_marginTop="12dp"
-            android:nestedScrollingEnabled="false"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:clipToPadding="false"
+            android:paddingStart="42dp"
+            android:paddingEnd="24dp"/>
     </LinearLayout>
 </ScrollView>

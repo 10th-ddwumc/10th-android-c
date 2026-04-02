@@ -25,9 +25,10 @@ class PurchaseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val list = listOf(
-            ProductData(R.drawable.ic_product1),
-            ProductData(R.drawable.ic_product2),
-            ProductData(R.drawable.ic_product3)
+            ProductData(R.drawable.ic_product1,"Nike Elite Creq","16$"),
+            ProductData(R.drawable.ic_product2,"Nike Everyday Plus Cushioned","10$"),
+            ProductData(R.drawable.ic_product3,"Nike Air Force woman","115$"),
+            ProductData(R.drawable.ic_product5,"Jordan ENike Air Force","115$")
         )
 
         val adapter = ProductAdapter(list)

@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.home -> replaceFragment(HomeFragment())
                 R.id.purchase -> replaceFragment(PurchaseFragment())
                 R.id.cart -> replaceFragment(CartFragment())
-                R.id.wishlist -> replaceFragment(WishlistFragment())
+                R.id.wishlist -> replaceFragment(WishListFragment())
                 R.id.profile -> replaceFragment(ProfileFragment())
             }
             true

@@ -24,8 +24,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val list = listOf(
-            ProductData(R.drawable.ic_jordan),
-            ProductData(R.drawable.ic_force),
+            ProductData(R.drawable.ic_jordan,"Air Jordan XXXVI","185$"),
+            ProductData(R.drawable.ic_force,"Nike Air Force 1'08","115$"),
         )
 
         val adapter = ProductAdapter(list)

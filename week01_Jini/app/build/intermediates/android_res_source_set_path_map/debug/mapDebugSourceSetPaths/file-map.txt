@@ -1,7 +1,0 @@
-com.jihee.week1_mission.app-pngs-0 E:\UMC_10th_Android_Jini\Jini\week1\app\build\generated\res\pngs\debug
-com.jihee.week1_mission.app-updated_navigation_xml-1 E:\UMC_10th_Android_Jini\Jini\week1\app\build\generated\updated_navigation_xml\debug
-com.jihee.week1_mission.app-packageDebugResources-2 E:\UMC_10th_Android_Jini\Jini\week1\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.jihee.week1_mission.app-packageDebugResources-3 E:\UMC_10th_Android_Jini\Jini\week1\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.jihee.week1_mission.app-debug-4 E:\UMC_10th_Android_Jini\Jini\week1\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.jihee.week1_mission.app-debug-5 E:\UMC_10th_Android_Jini\Jini\week1\app\src\debug\res
-com.jihee.week1_mission.app-main-6 E:\UMC_10th_Android_Jini\Jini\week1\app\src\main\res

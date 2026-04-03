@@ -34,16 +34,31 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
+        android:id="@+id/emptytv"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvBestSeller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FC5100"
+        android:includeFontPadding="false"
+        android:text="BestSeller" />
+
+    <TextView
         android:id="@+id/tvItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:includeFontPadding="false"
         android:text="item name" />
 
     <TextView
         android:id="@+id/tvItemExplain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:includeFontPadding="false"
         android:text="item explain"
         android:textColor="#767676" />
 
@@ -51,6 +66,7 @@
         android:id="@+id/tvItemColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:includeFontPadding="false"
         android:text="colours"
         android:textColor="#767676" />
 
@@ -58,5 +74,6 @@
         android:id="@+id/tvItemPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:includeFontPadding="false"
         android:text="item price" />
 </LinearLayout>

@@ -1,14 +1,15 @@
-package com.yogurt.umc_work02
+package com.yogurt.umc_work02.ui.main
 
-import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.yogurt.umc_work02.R
 import com.yogurt.umc_work02.databinding.ActivityMainBinding
-import kotlin.getValue
+import com.yogurt.umc_work02.ui.cart.CartFragment
+import com.yogurt.umc_work02.ui.home.HomeFragment
+import com.yogurt.umc_work02.ui.profile.ProfileFragment
+import com.yogurt.umc_work02.ui.purchase.PurchaseFragment
+import com.yogurt.umc_work02.ui.wishlist.WishlistFragment
 
 class MainActivity : AppCompatActivity() {
     private val Tag = "LIFE_QUIZ"
@@ -100,4 +101,3 @@ class MainActivity : AppCompatActivity() {
 
 
 }
-

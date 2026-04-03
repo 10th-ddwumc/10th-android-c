@@ -5,7 +5,7 @@
     android:id="@+id/nav_purchase"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".PurchaseFragment">
+    tools:context=".ui.purchase.PurchaseFragment">
 
 
     <com.google.android.material.tabs.TabLayout
@@ -15,7 +15,6 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="643dp"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Shoes" />
+
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -1,12 +1,13 @@
-package com.yogurt.umc_work02
+package com.yogurt.umc_work02.ui.cart
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.yogurt.umc_work02.R
 import com.yogurt.umc_work02.databinding.FragmentCartBinding
-import com.yogurt.umc_work02.databinding.FragmentHomeBinding
+import com.yogurt.umc_work02.ui.main.MainActivity
 
 class CartFragment : Fragment() {
     private var _binding: FragmentCartBinding? = null

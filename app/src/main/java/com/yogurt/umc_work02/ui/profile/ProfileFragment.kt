@@ -1,11 +1,10 @@
-package com.yogurt.umc_work02
+package com.yogurt.umc_work02.ui.profile
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.yogurt.umc_work02.databinding.FragmentHomeBinding
+import androidx.fragment.app.Fragment
 import com.yogurt.umc_work02.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {

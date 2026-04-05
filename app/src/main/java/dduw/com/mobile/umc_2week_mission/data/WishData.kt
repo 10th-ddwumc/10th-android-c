@@ -1,9 +1,10 @@
 package dduw.com.mobile.umc_2week_mission.data
 
 data class WishData(
-    val wishImage: Int,
-    val wishItemName: String,
-    val wishItemSub: String,
-    val wishItemColor: String,
-    val wishItemPrice: String
+    val buyImage: Int,
+    val buyItemName: String,
+    val buyItemSub: String,
+    val buyItemColor: String,
+    val buyItemPrice: String,
+    var isLiked: Boolean = true
 )

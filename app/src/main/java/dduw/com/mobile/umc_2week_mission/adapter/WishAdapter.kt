@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dduw.com.mobile.umc_2week_mission.data.BuyData
+import dduw.com.mobile.umc_2week_mission.data.ItemData
 import dduw.com.mobile.umc_2week_mission.data.WishData
 import dduw.com.mobile.umc_2week_mission.databinding.WishItemBinding
 
@@ -14,11 +15,11 @@ class WishAdapter(
     inner class WishViewHolder(val binding: WishItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(wish: WishData) {
-            binding.wishImage.setImageResource(wish.wishImage)
-            binding.wishItemName.text = wish.wishItemName
-            binding.wishItemSub.text = wish.wishItemSub
-            binding.wishItemColor.text = wish.wishItemColor
-            binding.wishItemPrice.text = wish.wishItemPrice
+            binding.wishImage.setImageResource(wish.buyImage)
+            binding.wishItemName.text = wish.buyItemName
+            binding.wishItemSub.text = wish.buyItemSub
+            binding.wishItemColor.text = wish.buyItemColor
+            binding.wishItemPrice.text = wish.buyItemPrice
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WishViewHolder {
@@ -33,5 +34,10 @@ class WishAdapter(
     }
     override fun getItemCount(): Int {
         return wishList.size
+    }
+    fun updateList(newList: List<WishData>) {
+        wishList.clear()
+        wishList.addAll(newList)
+        notifyDataSetChanged()
     }
 }

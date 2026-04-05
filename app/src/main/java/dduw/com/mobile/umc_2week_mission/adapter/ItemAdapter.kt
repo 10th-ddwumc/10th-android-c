@@ -38,4 +38,10 @@ class ItemAdapter(
     }
 
     override fun getItemCount(): Int = itemList.size
+
+    fun updateList(newList: List<ItemData>) {
+        itemList.clear()
+        itemList.addAll(newList)
+        notifyDataSetChanged()
+    }
 }

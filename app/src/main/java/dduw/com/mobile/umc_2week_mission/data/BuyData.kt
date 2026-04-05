@@ -5,5 +5,6 @@ data class BuyData (
     val buyItemName: String,
     val buyItemSub: String,
     val buyItemColor: String,
-    val buyItemPrice: String
+    val buyItemPrice: String,
+    var isLiked: Boolean = false
 )

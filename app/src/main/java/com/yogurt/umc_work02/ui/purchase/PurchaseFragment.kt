@@ -19,8 +19,6 @@ class PurchaseFragment : Fragment() {
 
     private var _binding: FragmentPurchaseBinding? = null
     private val binding get() = _binding!!
-    private lateinit var itemDataStore: ItemDataStore
-    private lateinit var purchaseAdapter: ItemPurchaseAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,72 +31,15 @@ class PurchaseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemDataStore = ItemDataStore(requireContext())
-        purchaseAdapter = ItemPurchaseAdapter(emptyList()) {
-            viewLifecycleOwner.lifecycleScope.launch {
-                itemDataStore.saveItemData(itemDataStore.PURCHASE_DATA_KEY, purchaseAdapter.itemList)
-            }
-        }
-//        val pagerAdapter = PurchaseTabAdapter(this)
-//        binding.viewPager.adapter = pagerAdapter
-//
-//        val tabTitles = listOf("전체", "Tops & T-Shirts", "Shoes")
-//
-//        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-//            tab.text = tabTitles[position]
-//        }.attach()
-//
-        val gridLayoutManager = GridLayoutManager(context, 2)
+        val pagerAdapter = PurchaseTabAdapter(this)
+        binding.viewPager.adapter = pagerAdapter
 
-        binding.rvMain.layoutManager = gridLayoutManager
-        binding.rvMain.adapter = purchaseAdapter
+        val tabTitles = listOf("전체", "Tops & T-Shirts", "Shoes")
 
-        observeItemData()
-    }
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            tab.text = tabTitles[position]
+        }.attach()
 
-    private fun saveInitialItemData() {
-        val initialList = listOf(
-            ItemData(
-                1,
-                R.drawable.item5,
-                "Nike Everyday Plus Cushioned",
-                "Training Ankle Socks (6 Pairs)",
-                "US $123",
-                5,
-                false,
-                false
-            ),
-            ItemData(2,R.drawable.item2, "Socks", "sample explain", "US $10", 7,false,false),
-            ItemData(3,R.drawable.item3, "Nike Air Force 1 '07", "sample explain", "US $115", 5,true,false),
-            ItemData(
-                4,
-                R.drawable.item4,
-                "Jordan ENike Air Force 1 '07ssentials",
-                "sample explain",
-                "US $120",
-                2,
-                true,
-                false
-            ),
-        )
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            itemDataStore.saveItemData(itemDataStore.PURCHASE_DATA_KEY,initialList)
-        }
-
-
-    }
-
-    private fun observeItemData() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            itemDataStore.getItemDataFlow(itemDataStore.PURCHASE_DATA_KEY).collect { itemData ->
-                if (itemData.isEmpty()) {
-                    saveInitialItemData()
-                } else {
-                    purchaseAdapter.updateData(itemData)
-                }
-            }
-        }
     }
 
     override fun onDestroyView() {

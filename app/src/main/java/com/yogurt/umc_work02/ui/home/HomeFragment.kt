@@ -46,8 +46,6 @@ class HomeFragment : Fragment() {
             adapter = homeAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
-
-        saveInitialItemData()
         observeItemData()
     }
 
@@ -67,7 +65,9 @@ class HomeFragment : Fragment() {
     private fun observeItemData() {
         viewLifecycleOwner.lifecycleScope.launch {
             itemDataStore.getItemDataFlow(itemDataStore.ITEM_DATA_KEY).collect { itemData ->
-                if (itemData.isNotEmpty()) {
+                if (itemData.isEmpty()) {
+                    saveInitialItemData()
+                } else {
                     homeAdapter.updateData(itemData)
                 }
             }

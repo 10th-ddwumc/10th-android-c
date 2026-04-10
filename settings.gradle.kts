@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "UMC_Work02"
+rootProject.name = "UMC_Nike_Clone"
 include(":app" )
  

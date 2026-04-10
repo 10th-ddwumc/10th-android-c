@@ -7,11 +7,6 @@ class PurchaseTabAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int = 3
 
     override fun createFragment(position: Int): Fragment {
-        return when(position) {
-            0 -> AllFragment()
-            1 -> TopsFragment()
-            2 -> ShoesFragment()
-            else -> AllFragment()
-        } as Fragment
+        return PurchaseChildFragment()
     }
 }

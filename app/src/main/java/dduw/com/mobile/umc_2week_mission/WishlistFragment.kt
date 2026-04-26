@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import dduw.com.mobile.umc_2week_mission.adapter.BuyAdapter
 import dduw.com.mobile.umc_2week_mission.adapter.WishAdapter
-import dduw.com.mobile.umc_2week_mission.data.BuyData
-import dduw.com.mobile.umc_2week_mission.data.WishData
 import dduw.com.mobile.umc_2week_mission.dataStore.WishDataStore
 import dduw.com.mobile.umc_2week_mission.databinding.FragmentWishlistBinding
 import kotlinx.coroutines.launch

@@ -3,8 +3,6 @@ package dduw.com.mobile.umc_2week_mission.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import dduw.com.mobile.umc_2week_mission.data.BuyData
-import dduw.com.mobile.umc_2week_mission.data.ItemData
 import dduw.com.mobile.umc_2week_mission.data.WishData
 import dduw.com.mobile.umc_2week_mission.databinding.WishItemBinding
 

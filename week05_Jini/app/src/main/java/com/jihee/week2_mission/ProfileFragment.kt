@@ -36,20 +36,20 @@ class ProfileFragment : Fragment() {
     private fun loadData() {
         lifecycleScope.launch {
             try {
-                val response = RetrofitInstance.api.getUsers(1)
+                val response = RetrofitInstance.api.getUsers(("reqres_842dfb047c9043af967deb9a16fb3dac"), 1)
                 val userList = response.data
 
                 adapter.updateList(userList)
 
-                if (userList.isNotEmpty()) {
-                    val me = userList[0]
+                val userResponse = RetrofitInstance.api.getUser("reqres_842dfb047c9043af967deb9a16fb3dac", 1)
+                val me = userResponse.data
 
-                    binding.textView.text = "${me.first_name} ${me.last_name}"
+                binding.textView.text = "${me.first_name} ${me.last_name}"
 
-                    Glide.with(requireContext())
-                        .load(me.avatar)
-                        .into(binding.imageView2)
-                }
+                Glide.with(requireContext())
+                    .load(me.avatar)
+                    .into(binding.imageView2)
+
 
             } catch (e: Exception) {
                 e.printStackTrace()

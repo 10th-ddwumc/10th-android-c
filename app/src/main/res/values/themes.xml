@@ -5,6 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="android:fontFamily">@font/noto_sans_kr</item>
         <item name="fontFamily">@font/noto_sans_kr</item>
+        <item name="android:windowBackground">#FFFFFF</item>
     </style>
 
     <style name="Theme.UMC_Work02" parent="Base.Theme.UMC_Work02" />

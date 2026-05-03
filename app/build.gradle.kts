@@ -1,5 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -35,6 +38,9 @@ android {
     }
 
     viewBinding.enable = true
+    kotlinOptions {
+        jvmTarget = "11"
+    }
 
 }
 
@@ -59,4 +65,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.glide)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+    implementation(libs.androidx.fragment.ktx.v171)
+    implementation(libs.androidx.activity.ktx)
 }

@@ -15,22 +15,19 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.yogurt.umc_work02.R
-import com.yogurt.umc_work02.data.UserRepository
-import com.yogurt.umc_work02.data.remote.RetrofitClient
+import com.yogurt.umc_work02.data.repository.UserLocalRepository
 import com.yogurt.umc_work02.databinding.FragmentProfileBinding
-import kotlinx.coroutines.launch
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: ProfileViewModel by viewModels {
-        ProfileViewModelFactory(UserRepository())
-    }
+    private val viewModel: ProfileViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,7 +86,9 @@ class ProfileFragment : Fragment() {
         binding.rvFollowing.adapter = adapter
 
         viewModel.userListResult.observe(viewLifecycleOwner) { result ->
+            Log.d("FLOW_TRACE", "[Fragment] LiveData 변화 감지 (Observe 블록 실행)")
             result.onSuccess { data ->
+                Log.d("FLOW_TRACE", "[Fragment] 어댑터에 데이터 전달: ${data.userList.size}명")
                 val userList = data.userList
                 adapter.updateData(userList)
             }.onFailure { error ->
@@ -102,7 +101,6 @@ class ProfileFragment : Fragment() {
     }
     private fun observeProfile() {
         viewModel.profileResult.observe(viewLifecycleOwner) { result ->
-
             result.onSuccess { data ->
                 val user = data.userData
 

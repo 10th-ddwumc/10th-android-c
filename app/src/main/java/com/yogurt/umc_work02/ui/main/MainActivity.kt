@@ -10,7 +10,9 @@ import com.yogurt.umc_work02.ui.home.HomeFragment
 import com.yogurt.umc_work02.ui.profile.ProfileFragment
 import com.yogurt.umc_work02.ui.purchase.PurchaseFragment
 import com.yogurt.umc_work02.ui.wishlist.WishlistFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val Tag = "LIFE_QUIZ"
     private lateinit var binding: ActivityMainBinding

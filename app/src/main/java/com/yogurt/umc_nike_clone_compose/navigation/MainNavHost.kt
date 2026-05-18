@@ -14,6 +14,8 @@ import com.yogurt.umc_nike_clone_compose.ui.screen.wishlist.WishListScreen
 @Composable
 fun MainNavHost(
     navController: NavHostController,
+    wishlistIds: List<Int>,
+    onWishClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     NavHost(
@@ -25,10 +27,13 @@ fun MainNavHost(
             HomeScreen()
         }
         composable(BottomNavItem.Search.route) {
-            SearchScreen()
+            SearchScreen(
+                wishlistIds = wishlistIds,
+                onWishClick = onWishClick
+            )
         }
         composable(BottomNavItem.WishList.route) {
-            WishListScreen()
+            WishListScreen(wishlistIds = wishlistIds)
         }
         composable(BottomNavItem.Cart.route) {
             CartScreen(

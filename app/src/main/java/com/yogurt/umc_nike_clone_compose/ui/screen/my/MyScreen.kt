@@ -18,6 +18,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PageSize
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedButton
@@ -185,14 +188,14 @@ fun MyScreen(viewModel: MyViewModel = hiltViewModel()) {
         }
 
         item {
-            LazyRow(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(116.dp),
-                contentPadding = PaddingValues(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                if (userList.isEmpty()) {
+            if (userList.isEmpty()) {
+                LazyRow(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(116.dp),
+                    contentPadding = PaddingValues(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
                     items(3) {
                         Box(
                             modifier = Modifier
@@ -200,17 +203,26 @@ fun MyScreen(viewModel: MyViewModel = hiltViewModel()) {
                                 .background(Color.LightGray)
                         )
                     }
-                } else {
-                    items(userList) { user ->
-                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            AsyncImage(
-                                model = user.avatar,
-                                contentDescription = "${user.firstName} 프로필",
-                                modifier = Modifier
-                                    .size(107.dp)
-                            )
-                            Spacer(modifier = Modifier.height(4.dp))
-                        }
+                }
+            } else {
+                val pagerState = rememberPagerState(pageCount = { userList.size })
+                HorizontalPager(
+                    state = pagerState,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(116.dp),
+                    contentPadding = PaddingValues(horizontal = 16.dp),
+                    pageSize = PageSize.Fixed(107.dp),
+                    pageSpacing = 8.dp
+                ) { page ->
+                    val user = userList[page]
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        AsyncImage(
+                            model = user.avatar,
+                            contentDescription = "${user.firstName} 프로필",
+                            modifier = Modifier.size(107.dp)
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
                     }
                 }
             }

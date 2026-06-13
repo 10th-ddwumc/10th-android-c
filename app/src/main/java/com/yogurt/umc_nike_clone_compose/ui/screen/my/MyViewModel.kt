@@ -11,6 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -42,14 +43,13 @@ class MyViewModel @Inject constructor(
                 _profileResult.value = Result.success(response)
             }.onFailure { error ->
                 Log.d("FLOW_TRACE", "[ViewModel] Profile Remote 실패 -> Local 데이터 조회 시도")
-                localRepository.getUserProfileFlow().collect { localData ->
-                    if (localData != null) {
-                        Log.d("FLOW_TRACE", "[ViewModel] Profile Local 캐시 데이터 발견")
-                        _profileResult.value = Result.success(localData)
-                    } else {
-                        Log.d("FLOW_TRACE", "[ViewModel] Profile Local에도 데이터 없음")
-                        _profileResult.value = Result.failure(error)
-                    }
+                val localData = localRepository.getUserProfileFlow().firstOrNull()
+                if (localData != null) {
+                    Log.d("FLOW_TRACE", "[ViewModel] Profile Local 캐시 데이터 발견")
+                    _profileResult.value = Result.success(localData)
+                } else {
+                    Log.d("FLOW_TRACE", "[ViewModel] Profile Local에도 데이터 없음")
+                    _profileResult.value = Result.failure(error)
                 }
             }
         }
@@ -66,14 +66,13 @@ class MyViewModel @Inject constructor(
                 _userListResult.value = Result.success(response)
             }.onFailure { error ->
                 Log.d("FLOW_TRACE", "[ViewModel] List Remote 실패 -> Local 데이터 조회 시도")
-                localRepository.getUserListFlow().collect { localData ->
-                    if (localData != null) {
-                        Log.d("FLOW_TRACE", "[ViewModel] List Local 캐시 데이터 발견")
-                        _userListResult.value = Result.success(localData)
-                    } else {
-                        Log.d("FLOW_TRACE", "[ViewModel] List Local에도 데이터 없음")
-                        _userListResult.value = Result.failure(error)
-                    }
+                val localData = localRepository.getUserListFlow().firstOrNull()
+                if (localData != null) {
+                    Log.d("FLOW_TRACE", "[ViewModel] List Local 캐시 데이터 발견")
+                    _userListResult.value = Result.success(localData)
+                } else {
+                    Log.d("FLOW_TRACE", "[ViewModel] List Local에도 데이터 없음")
+                    _userListResult.value = Result.failure(error)
                 }
             }
         }

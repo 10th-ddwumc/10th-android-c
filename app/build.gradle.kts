@@ -5,11 +5,8 @@ plugins {
 
 android {
     namespace = "dduw.com.mobile.umc_7week"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "dduw.com.mobile.umc_7week"
